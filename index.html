@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snow-boarding Responsive Header</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .animate-heartbeat { animation: heartbeat 1.2s infinite; }
+    @keyframes heartbeat {
+      0% { transform: scale(1);}
+      15% { transform: scale(1.17);}
+      35% { transform: scale(1.12);}
+      45% { transform: scale(1.08);}
+      50% { transform: scale(1);}
+      100% { transform: scale(1);}
+    }
+    .animate-pulse-scale { animation: pulseScale 2s infinite; }
+    @keyframes pulseScale {
+      0% { transform: scale(1);}
+      50% { transform: scale(1.2);}
+      100% { transform: scale(1);}
+    }
+    /* At 1080px and below, nav is two rows of three, centered */
+    @media (max-width: 1080px) and (min-width: 769px) {
+      .twonav {
+        display: grid !important;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+        gap: 0.5rem;
+        justify-items: center;
+        align-items: center;
+      }
+      .twonav-row {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 1rem !important;
+        justify-content: center !important;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-['Inter',sans-serif]">
+
+<div class="container mx-auto max-w-[1200px] px-4">
+  <!-- Toph desktop -->
+  <div class="hidden md:flex gap-12 justify-end mb-2 w-full">
+    <h3 class="flex items-center text-gray-400 font-normal gap-2">Схема проезда</h3>
+    <h3 class="flex items-center text-gray-400 font-normal gap-2">
+      <!-- Silver phone SVG -->
+      <svg width="20" height="20" viewBox="0 0 361 290" fill="none"><path d="M77.8 23.8C92.1 9.5 113.7 11.2 125.3 28.2L154.5 68.1C158.9 74.3 160.3 82.2 158.5 89.7L150.2 124.1C149.2 128.2 150.4 132.5 153.6 135.6L189.3 171.2C192.4 174.2 196.8 175.5 200.9 174.4L235.3 166.2C242.8 164.4 250.6 165.9 256.9 170.3L296.8 199.5C313.8 211.1 315.5 232.7 301.2 247L284.3 264C272.9 275.4 255.7 279.2 240.4 273.6C159.3 244.1 89.7 174.7 60.2 93.6C54.6 78.3 58.4 61.1 69.8 49.7L77.8 41.7Z" fill="silver"/></svg>
+      +79227288288
+    </h3>
+    <h3 class="flex items-center text-gray-400 font-normal gap-2">
+      <svg width="20" height="20" viewBox="0 0 361 290" fill="none"><path d="M77.8 23.8C92.1 9.5 113.7 11.2 125.3 28.2L154.5 68.1C158.9 74.3 160.3 82.2 158.5 89.7L150.2 124.1C149.2 128.2 150.4 132.5 153.6 135.6L189.3 171.2C192.4 174.2 196.8 175.5 200.9 174.4L235.3 166.2C242.8 164.4 250.6 165.9 256.9 170.3L296.8 199.5C313.8 211.1 315.5 232.7 301.2 247L284.3 264C272.9 275.4 255.7 279.2 240.4 273.6C159.3 244.1 89.7 174.7 60.2 93.6C54.6 78.3 58.4 61.1 69.8 49.7L77.8 41.7Z" fill="silver"/></svg>
+      +73513790979
+    </h3>
+  </div>
+  <!-- Logo + Nav desktop/tablet -->
+  <div class="flex items-center justify-between w-full">
+    <!-- Logo Left -->
+    <div class="flex items-center gap-3 group">
+      <img class="w-[60px] h-[74px] drop-shadow-xl transition duration-300 group-hover:scale-110 group-hover:-rotate-6 animate-heartbeat" src="./icons/Logo (8).png" alt="">
+      <img class="w-[146px] h-[42px] transition duration-300 group-hover:scale-105 group-hover:brightness-110" src="./images/logotext.png" alt="">
+    </div>
+    <!-- Nav Right (responsive two-row at 1080px, single row otherwise) -->
+    <nav class="hidden md:flex twonav gap-4 w-full justify-end items-center">
+      <div class="twonav-row flex gap-4">
+        <a href="#" class="font-normal text-[18px] px-4 py-2 rounded-lg transition hover:bg-blue-100 hover:text-blue-600 text-center">Курорт</a>
+        <a href="#" class="font-normal text-[18px] px-4 py-2 rounded-lg transition hover:bg-blue-100 hover:text-blue-600 text-center">Проживание</a>
+        <a href="#" class="font-normal text-[18px] px-4 py-2 rounded-lg transition hover:bg-blue-100 hover:text-blue-600 text-center">Услуги и тарифы</a>
+      </div>
+      <div class="twonav-row flex gap-4">
+        <a href="#" class="font-normal text-[18px] px-4 py-2 rounded-lg transition hover:bg-blue-100 hover:text-blue-600 text-center">Афиша</a>
+        <a href="#" class="font-normal text-[18px] px-4 py-2 rounded-lg transition hover:bg-blue-100 hover:text-blue-600 text-center">Для бизнеса</a>
+        <a href="#" class="font-normal text-[18px] px-4 py-2 rounded-lg transition hover:bg-blue-100 hover:text-blue-600 text-center">Купить онлайн</a>
+      </div>
+    </nav>
+    <!-- Mobile burger btn -->
+    <button id="openMenuBtn"
+      class="md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-sky-400 to-blue-500 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl group"
+      aria-label="Open menu"
+      style="min-width:2.5rem;min-height:2.5rem; position:absolute;right:1rem;top:1rem;">
+      <span class="flex flex-col gap-1">
+        <span class="block w-8 h-1.5 rounded-full bg-white transition group-hover:bg-yellow-300"></span>
+        <span class="block w-8 h-1.5 rounded-full bg-white transition group-hover:bg-yellow-300"></span>
+        <span class="block w-8 h-1.5 rounded-full bg-white transition group-hover:bg-yellow-300"></span>
+      </span>
+    </button>
+  </div>
+</div>
+
+<!-- Overlay -->
+<div id="overlay"
+  class="fixed inset-0 bg-black bg-opacity-40 hidden z-40 transition-opacity duration-300 md:hidden"
+></div>
+
+<!-- Mobile Drawer Menu -->
+<div id="drawerMenu"
+  class="fixed top-0 right-0 h-full bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-500 md:hidden flex flex-col pt-12"
+  style="border-top-left-radius:2rem; border-bottom-left-radius:2rem;width:15rem;;"
+>
+  <!-- Toph in drawer (mobile) -->
+  <div class="flex flex-col gap-3 px-4 mb-6 text-[14px]">
+    <h3 class="flex items-center text-gray-400 font-normal gap-2">Схема проезда</h3>
+    <h3 class="flex items-center text-gray-400 font-normal gap-2">
+      <svg width="16" height="16" viewBox="0 0 361 290" fill="none"><path d="M77.8 23.8C92.1 9.5 113.7 11.2 125.3 28.2L154.5 68.1C158.9 74.3 160.3 82.2 158.5 89.7L150.2 124.1C149.2 128.2 150.4 132.5 153.6 135.6L189.3 171.2C192.4 174.2 196.8 175.5 200.9 174.4L235.3 166.2C242.8 164.4 250.6 165.9 256.9 170.3L296.8 199.5C313.8 211.1 315.5 232.7 301.2 247L284.3 264C272.9 275.4 255.7 279.2 240.4 273.6C159.3 244.1 89.7 174.7 60.2 93.6C54.6 78.3 58.4 61.1 69.8 49.7L77.8 41.7Z" fill="silver"/></svg>
+      +79227288288
+    </h3>
+    <h3 class="flex items-center text-gray-400 font-normal gap-2">
+      <svg width="16" height="16" viewBox="0 0 361 290" fill="none"><path d="M77.8 23.8C92.1 9.5 113.7 11.2 125.3 28.2L154.5 68.1C158.9 74.3 160.3 82.2 158.5 89.7L150.2 124.1C149.2 128.2 150.4 132.5 153.6 135.6L189.3 171.2C192.4 174.2 196.8 175.5 200.9 174.4L235.3 166.2C242.8 164.4 250.6 165.9 256.9 170.3L296.8 199.5C313.8 211.1 315.5 232.7 301.2 247L284.3 264C272.9 275.4 255.7 279.2 240.4 273.6C159.3 244.1 89.7 174.7 60.2 93.6C54.6 78.3 58.4 61.1 69.8 49.7L77.8 41.7Z" fill="silver"/></svg>
+      +73513790979
+    </h3>
+  </div>
+  <button id="closeMenuBtn"
+    class="ml-auto mr-6 mb-8 text-blue-500 text-3xl font-bold hover:text-yellow-400 transition"
+    aria-label="Close"
+  >&times;</button>
+  <nav class="flex flex-col gap-3 px-4 text-[14px] text-left">
+    <a href="#" class="font-semibold text-blue-500 hover:bg-blue-100 hover:text-blue-600 px-3 py-2 rounded-lg transition active:scale-95 text-left">Курорт</a>
+    <a href="#" class="font-semibold text-blue-500 hover:bg-blue-100 hover:text-blue-600 px-3 py-2 rounded-lg transition active:scale-95 text-left">Проживание</a>
+    <a href="#" class="font-semibold text-blue-500 hover:bg-blue-100 hover:text-blue-600 px-3 py-2 rounded-lg transition active:scale-95 text-left">Услуги и тарифы</a>
+    <a href="#" class="font-semibold text-blue-500 hover:bg-blue-100 hover:text-blue-600 px-3 py-2 rounded-lg transition active:scale-95 text-left">Афиша</a>
+    <a href="#" class="font-semibold text-blue-500 hover:bg-blue-100 hover:text-blue-600 px-3 py-2 rounded-lg transition active:scale-95 text-left">Для бизнеса</a>
+    <a href="#" class="font-semibold text-blue-500 hover:bg-blue-100 hover:text-blue-600 px-3 py-2 rounded-lg transition active:scale-95 text-left">Купить онлайн</a>
+  </nav>
+</div>
+
+
+
+<!-- SwiperJS CDN (include only once in your project!) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<section class="max-w-[1200px] mx-auto px-2 md:px-0 mt-8">
+  <div class="relative rounded-[28px] border border-blue-300 shadow-lg overflow-hidden">
+    <!-- Swiper -->
+    <div class="swiper hero-swiper w-full h-[410px]">
+      <div class="swiper-wrapper">
+
+
+
+<!-- Slide 02 -->
+        <div class="swiper-slide relative">
+          <img src="./images/grilled-chicken-legs-on-the-flaming-grill-with-grilled-vegetables-with-tomatoes-potatoes-pepper-seeds-salt 1.png" alt="Snowboard 2" class="w-full h-full object-cover"/>
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-900/60 to-blue-500/10"></div>
+          <div class="absolute left-0 top-0 h-full flex flex-col justify-center pl-10 pr-[340px] py-10">
+            <h2 class="text-white font-bold text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight drop-shadow-lg">
+BBQ площадки        </h2>
+            <p class="text-white text-lg md:text-xl font-medium drop-shadow mb-2">
+              На ЦАО "Евразия" вы всегда можете разнообразить свой отдых и приобщить <br> 
+              своих близких к зимнему активному отдыху. Не важно, насколько хорошо вы <br>
+               катаетесь на лыжах или сноуборде, трасса тюбинга подходит для всех.
+            </p>
+          </div>
+          <!-- Desktop info box -->
+          <div class="absolute top-7 right-7 bg-white rounded-2xl shadow-xl min-w-[220px] max-w-[260px] px-6 py-6 flex-col gap-3 border border-blue-200 hidden md:flex" id="infoBox2">
+            <!-- ... same as above ... -->
+            <button class="flex items-center text-gray-700 text-sm font-semibold mb-2">
+              <span class="mr-2">›</span> Свернуть
+            </button>
+            <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+              <img src="./icons/t1.png" alt="" class="w-6 h-6">
+              Веб-камеры
+            </a>
+            <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+              <img src="./icons/t2.png" alt="" class="w-6 h-6">
+              Канатные дороги
+            </a>
+            <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+              <img src="./icons/t3.png" alt="" class="w-6 h-6">
+              Билеты
+            </a>
+            <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+              <img src="./icons/t4.png" alt="" class="w-6 h-6">
+              Карта
+            </a>
+            <hr class="my-2">
+            <div class="text-sm text-gray-400 flex justify-between items-center">
+              <span>Сегодня, sunday 15 января</span>
+              <span class="flex items-center gap-1">
+                <img src="./icons/t5.png" alt="" class="w-4 h-4">
+                -10°
+              </span>
+            </div>
+          </div>
+          <!-- Info Button for Mobile -->
+          <button class="md:hidden absolute top-6 right-6 z-20 bg-white text-blue-600 font-bold rounded-xl shadow px-5 py-2 border border-blue-200" onclick="document.getElementById('mobileInfo2').classList.remove('hidden')">
+            Показать информацию
+          </button>
+          <!-- Mobile Info Box (hidden by default) -->
+          <div id="mobileInfo2" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
+            <div class="bg-white rounded-2xl shadow-xl min-w-[220px] max-w-[90vw] px-6 py-6 flex flex-col gap-3 border border-blue-200 relative">
+              <button class="absolute top-2 right-2 text-2xl text-blue-500 font-bold" onclick="document.getElementById('mobileInfo2').classList.add('hidden')">&times;</button>
+              <button class="flex items-center text-gray-700 text-sm font-semibold mb-2">
+                <span class="mr-2">›</span> Свернуть
+              </button>
+              <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+                <img src="./icons/t1.png" alt="" class="w-6 h-6">
+                Веб-камеры
+              </a>
+              <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+                <img src="./icons/t2.png" alt="" class="w-6 h-6">
+                Канатные дороги
+              </a>
+              <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+                <img src="./icons/t3.png" alt="" class="w-6 h-6">
+                Билеты
+              </a>
+              <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+                <img src="./icons/t4.png" alt="" class="w-6 h-6">
+                Карта
+              </a>
+              <hr class="my-2">
+              <div class="text-sm text-gray-400 flex justify-between items-center">
+                <span>Сегодня, sunday 15 января</span>
+                <span class="flex items-center gap-1">
+                  <img src="./icons/t5.png" alt="" class="w-4 h-4">
+                  -10°
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Swiper Pagination -->
+          <div class="absolute left-0 right-0 bottom-2 flex justify-center items-center z-20 pointer-events-none">
+            <div class="swiper-pagination pointer-events-auto"></div>
+          </div>
+        </div>
+
+
+
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide relative">
+          <img src="./images/Snowboardf1.jpg" alt="Snowboard main" class="w-top h-top object-cover"/>
+          <!-- Overlay gradient -->
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-900/60 to-blue-500/10"></div>
+          <!-- Text Box -->
+          <div class="absolute left-0 top-0 h-full flex flex-col justify-center pl-10 pr-[340px] py-10">
+            <h2 class="text-white font-bold text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight drop-shadow-lg">
+              30 декабря в ЦАО "Евразия"  <br>  состоится тестовое <br>  открытие 2 склона.
+            </h2>
+            <p class="text-white text-lg md:text-xl font-medium drop-shadow mb-2">
+              К новогодним праздникам уже подготовлено <br>  5 больших склонов и учебная трасса, <br>  а также тюбинговая горка.
+            </p>
+          </div>
+          <!-- Right Side Card Desktop -->
+          <div class="absolute top-7 right-7 bg-white rounded-2xl shadow-xl min-w-[220px] max-w-[260px] px-6 py-6 flex-col gap-3 border border-blue-200 hidden md:flex" id="infoBox1">
+            <button class="flex items-center text-gray-700 text-sm font-semibold mb-2">
+              <span class="mr-2">›</span> Свернуть
+            </button>
+            <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+              <img src="./icons/t1.png" alt="" class="w-6 h-6">
+              Веб-камеры
+            </a>
+            <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+              <img src="./icons/t2.png" alt="" class="w-6 h-6">
+              Канатные дороги
+            </a>
+            <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+              <img src="./icons/t3.png" alt="" class="w-6 h-6">
+              Билеты
+            </a>
+            <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+              <img src="./icons/t4.png" alt="" class="w-6 h-6">
+              Карта
+            </a>
+            <hr class="my-2">
+            <div class="text-sm text-gray-400 flex justify-between items-center">
+              <span>Сегодня, sunday 15 января</span>
+              <span class="flex items-center gap-1">
+                <img src="./icons/t5.png" alt="" class="w-4 h-4">
+                -10°
+              </span>
+            </div>
+          </div>
+          <!-- Info Button for Mobile -->
+          <button class="md:hidden absolute top-6 right-6 z-20 bg-white text-blue-600 font-bold rounded-xl shadow px-5 py-2 border border-blue-200" onclick="document.getElementById('mobileInfo1').classList.remove('hidden')">
+            Показать информацию
+          </button>
+          <!-- Mobile Info Box (hidden by default) -->
+          <div id="mobileInfo1" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
+            <div class="bg-white rounded-2xl shadow-xl min-w-[220px] max-w-[90vw] px-6 py-6 flex flex-col gap-3 border border-blue-200 relative">
+              <button class="absolute top-2 right-2 text-2xl text-blue-500 font-bold" onclick="document.getElementById('mobileInfo1').classList.add('hidden')">&times;</button>
+              <button class="flex items-center text-gray-700 text-sm font-semibold mb-2">
+                <span class="mr-2">›</span> Свернуть
+              </button>
+              <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+                <img src="./icons/t1.png" alt="" class="w-6 h-6">
+                Веб-камеры
+              </a>
+              <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+                <img src="./icons/t2.png" alt="" class="w-6 h-6">
+                Канатные дороги
+              </a>
+              <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+                <img src="./icons/t3.png" alt="" class="w-6 h-6">
+                Билеты
+              </a>
+              <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+                <img src="./icons/t4.png" alt="" class="w-6 h-6">
+                Карта
+              </a>
+              <hr class="my-2">
+              <div class="text-sm text-gray-400 flex justify-between items-center">
+                <span>Сегодня, sunday 15 января</span>
+                <span class="flex items-center gap-1">
+                  <img src="./icons/t5.png" alt="" class="w-4 h-4">
+                  -10°
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Swiper Pagination: Centered and absolutely at bottom -->
+          <div class="absolute left-0 right-0 bottom-2 flex justify-center items-center z-20 pointer-events-none">
+            <div class="swiper-pagination pointer-events-auto"></div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="swiper-slide relative">
+          <img src="./images/SNOWBOARDING2.png" alt="Snowboard 2" class="w-full h-full object-cover"/>
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-900/60 to-blue-500/10"></div>
+          <div class="absolute left-0 top-0 h-full flex flex-col justify-center pl-10 pr-[340px] py-10">
+            <h2 class="text-white font-bold text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight drop-shadow-lg">
+Тюбинг            </h2>
+            <p class="text-white text-lg md:text-xl font-medium drop-shadow mb-2">
+              На ЦАО "Евразия" вы всегда можете разнообразить свой отдых и приобщить <br> 
+              своих близких к зимнему активному отдыху. Не важно, насколько хорошо вы <br>
+               катаетесь на лыжах или сноуборде, трасса тюбинга подходит для всех.
+            </p>
+          </div>
+          <!-- Desktop info box -->
+          <div class="absolute top-7 right-7 bg-white rounded-2xl shadow-xl min-w-[220px] max-w-[260px] px-6 py-6 flex-col gap-3 border border-blue-200 hidden md:flex" id="infoBox2">
+            <!-- ... same as above ... -->
+            <button class="flex items-center text-gray-700 text-sm font-semibold mb-2">
+              <span class="mr-2">›</span> Свернуть
+            </button>
+            <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+              <img src="./icons/t1.png" alt="" class="w-6 h-6">
+              Веб-камеры
+            </a>
+            <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+              <img src="./icons/t2.png" alt="" class="w-6 h-6">
+              Канатные дороги
+            </a>
+            <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+              <img src="./icons/t3.png" alt="" class="w-6 h-6">
+              Билеты
+            </a>
+            <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+              <img src="./icons/t4.png" alt="" class="w-6 h-6">
+              Карта
+            </a>
+            <hr class="my-2">
+            <div class="text-sm text-gray-400 flex justify-between items-center">
+              <span>Сегодня, sunday 15 января</span>
+              <span class="flex items-center gap-1">
+                <img src="./icons/t5.png" alt="" class="w-4 h-4">
+                -10°
+              </span>
+            </div>
+          </div>
+          <!-- Info Button for Mobile -->
+          <button class="md:hidden absolute top-6 right-6 z-20 bg-white text-blue-600 font-bold rounded-xl shadow px-5 py-2 border border-blue-200" onclick="document.getElementById('mobileInfo2').classList.remove('hidden')">
+            Показать информацию
+          </button>
+          <!-- Mobile Info Box (hidden by default) -->
+          <div id="mobileInfo2" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
+            <div class="bg-white rounded-2xl shadow-xl min-w-[220px] max-w-[90vw] px-6 py-6 flex flex-col gap-3 border border-blue-200 relative">
+              <button class="absolute top-2 right-2 text-2xl text-blue-500 font-bold" onclick="document.getElementById('mobileInfo2').classList.add('hidden')">&times;</button>
+              <button class="flex items-center text-gray-700 text-sm font-semibold mb-2">
+                <span class="mr-2">›</span> Свернуть
+              </button>
+              <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+                <img src="./icons/t1.png" alt="" class="w-6 h-6">
+                Веб-камеры
+              </a>
+              <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+                <img src="./icons/t2.png" alt="" class="w-6 h-6">
+                Канатные дороги
+              </a>
+              <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+                <img src="./icons/t3.png" alt="" class="w-6 h-6">
+                Билеты
+              </a>
+              <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+                <img src="./icons/t4.png" alt="" class="w-6 h-6">
+                Карта
+              </a>
+              <hr class="my-2">
+              <div class="text-sm text-gray-400 flex justify-between items-center">
+                <span>Сегодня, sunday 15 января</span>
+                <span class="flex items-center gap-1">
+                  <img src="./icons/t5.png" alt="" class="w-4 h-4">
+                  -10°
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Swiper Pagination -->
+          <div class="absolute left-0 right-0 bottom-2 flex justify-center items-center z-20 pointer-events-none">
+            <div class="swiper-pagination pointer-events-auto"></div>
+          </div>
+        </div>
+
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide relative">
+          <img src="./images/SNOWBOARDING WITH WIFE.png" alt="Snowboard 3" class="w-full h-full object-cover"/>
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-900/60 to-blue-500/10"></div>
+          <div class="absolute left-0 top-0 h-full flex flex-col justify-center pl-10 pr-[340px] py-10">
+            <h2 class="text-white font-bold text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight drop-shadow-lg">
+Отели ЦАО Евразия            </h2>
+            <p class="text-white text-lg md:text-xl font-medium drop-shadow mb-2">
+              Найдите и забронируйте подходящий  <br>
+для Вас отель на официальном сайте Евразии.  <br>
+Широкий выбор отелей по всему курорту     <br>
+и самые низкие цены гарантированы
+            </p>
+          </div>
+          <div class="absolute top-7 right-7 bg-white rounded-2xl shadow-xl min-w-[220px] max-w-[260px] px-6 py-6 flex-col gap-3 border border-blue-200 hidden md:flex" id="infoBox3">
+            <button class="flex items-center text-gray-700 text-sm font-semibold mb-2">
+              <span class="mr-2">›</span> Свернуть
+            </button>
+            <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+              <img src="./icons/t1.png" alt="" class="w-6 h-6">
+              Веб-камеры
+            </a>
+            <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+              <img src="./icons/t2.png" alt="" class="w-6 h-6">
+              Канатные дороги
+            </a>
+            <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+              <img src="./icons/t3.png" alt="" class="w-6 h-6">
+              Билеты
+            </a>
+            <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+              <img src="./icons/t4.png" alt="" class="w-6 h-6">
+              Карта
+            </a>
+            <hr class="my-2">
+            <div class="text-sm text-gray-400 flex justify-between items-center">
+              <span>Сегодня, sunday 15 января</span>
+              <span class="flex items-center gap-1">
+                <img src="./icons/t5.png" alt="" class="w-4 h-4">
+                -10°
+              </span>
+            </div>
+          </div>
+          <button class="md:hidden absolute top-6 right-6 z-20 bg-white text-blue-600 font-bold rounded-xl shadow px-5 py-2 border border-blue-200" onclick="document.getElementById('mobileInfo3').classList.remove('hidden')">
+            Показать информацию
+          </button>
+          <div id="mobileInfo3" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
+            <div class="bg-white rounded-2xl shadow-xl min-w-[220px] max-w-[90vw] px-6 py-6 flex flex-col gap-3 border border-blue-200 relative">
+              <button class="absolute top-2 right-2 text-2xl text-blue-500 font-bold" onclick="document.getElementById('mobileInfo3').classList.add('hidden')">&times;</button>
+              <button class="flex items-center text-gray-700 text-sm font-semibold mb-2">
+                <span class="mr-2">›</span> Свернуть
+              </button>
+              <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+                <img src="./icons/t1.png" alt="" class="w-6 h-6">
+                Веб-камеры
+              </a>
+              <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+                <img src="./icons/t2.png" alt="" class="w-6 h-6">
+                Канатные дороги
+              </a>
+              <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+                <img src="./icons/t3.png" alt="" class="w-6 h-6">
+                Билеты
+              </a>
+              <a href="#" class="flex items-center gap-3 text-blue-700 font-medium hover:text-blue-900 transition">
+                <img src="./icons/t4.png" alt="" class="w-6 h-6">
+                Карта
+              </a>
+              <hr class="my-2">
+              <div class="text-sm text-gray-400 flex justify-between items-center">
+                <span>Сегодня, sunday 15 января</span>
+                <span class="flex items-center gap-1">
+                  <img src="./icons/t5.png" alt="" class="w-4 h-4">
+                  -10°
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="absolute left-0 right-0 bottom-2 flex justify-center items-center z-20 pointer-events-none">
+            <div class="swiper-pagination pointer-events-auto"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="bg-[#e1e1e1] py-8 mt-10">
+  <div class="container mx-auto max-w-[1200px] px-4 flex flex-col gap-6">
+    <!-- Logo & contacts top -->
+    <div class="flex flex-col md:flex-row md:justify-between items-start md:items-center mb-2 gap-3">
+      <div class="flex items-center gap-3">
+        <img src="./icons/Logo (8).png" alt="Евразия логотип" class="w-[64px] h-[74px]">
+        <span class="font-semibold text-2xl md:text-3xl text-[#222] leading-none">Евразия</span>
+        <span class="text-xs md:text-base text-[#666] ml-2">Центр Активного Отдыха</span>
+      </div>
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 mt-2 md:mt-0 ml-0 md:ml-auto">
+        <span class="text-base md:text-lg">Схема проезда</span>
+        <span class="flex items-center gap-2 text-base md:text-lg">
+          <svg width="18" height="18" viewBox="0 0 361 290" fill="none"><path d="M77.8 23.8C92.1 9.5 113.7 11.2 125.3 28.2L154.5 68.1C158.9 74.3 160.3 82.2 158.5 89.7L150.2 124.1C149.2 128.2 150.4 132.5 153.6 135.6L189.3 171.2C192.4 174.2 196.8 175.5 200.9 174.4L235.3 166.2C242.8 164.4 250.6 165.9 256.9 170.3L296.8 199.5C313.8 211.1 315.5 232.7 301.2 247L284.3 264C272.9 275.4 255.7 279.2 240.4 273.6C159.3 244.1 89.7 174.7 60.2 93.6C54.6 78.3 58.4 61.1 69.8 49.7L77.8 41.7Z" fill="gray"/></svg>
+          +79227288288
+          <svg width="18" height="18" viewBox="0 0 361 290" fill="none"><path d="M77.8 23.8C92.1 9.5 113.7 11.2 125.3 28.2L154.5 68.1C158.9 74.3 160.3 82.2 158.5 89.7L150.2 124.1C149.2 128.2 150.4 132.5 153.6 135.6L189.3 171.2C192.4 174.2 196.8 175.5 200.9 174.4L235.3 166.2C242.8 164.4 250.6 165.9 256.9 170.3L296.8 199.5C313.8 211.1 315.5 232.7 301.2 247L284.3 264C272.9 275.4 255.7 279.2 240.4 273.6C159.3 244.1 89.7 174.7 60.2 93.6C54.6 78.3 58.4 61.1 69.8 49.7L77.8 41.7Z" fill="gray"/></svg>
+          +73513790979
+        </span>
+      </div>
+    </div>
+    <!-- Links grid and info -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+      <ul class="flex flex-col gap-2 text-[18px] font-normal">
+        <li>Услуги</li>
+        <li>Трассы</li>
+        <li>Кафе</li>
+        <li>Гостиница</li>
+        <li>О комплексе</li>
+      </ul>
+      <ul class="flex flex-col gap-2 text-[18px] font-normal">
+        <li>Новости</li>
+        <li>Тарифы</li>
+        <li>Прокат</li>
+        <li>Акции и туры</li>
+        <li>Цены на услуги</li>
+        <li>Схема проезда</li>
+      </ul>
+      <ul class="flex flex-col gap-2 text-[18px] font-normal">
+        <li>Туры</li>
+        <li>Проживание</li>
+        <li>Забронировать номер</li>
+        <li>Детям</li>
+        <li>Акции</li>
+        <li>Веб-камеры</li>
+      </ul>
+      <!-- Schedule -->
+      <div class="flex flex-col gap-2 col-span-1">
+        <span class="font-bold text-[18px] mb-1">Режим работы:</span>
+        <span class="text-[16px]">Пн–пт: 10.00–21.00</span>
+        <span class="text-[16px]">Сб–вс 9.00–21.00</span>
+      </div>
+      <!-- Contacts -->
+      <div class="flex flex-col gap-2 col-span-1">
+        <span class="font-bold text-[18px] mb-1">Контакты</span>
+        <span class="text-[14px]">
+          Вcесезонный центр<br>
+          спорта и отдыха –<br>
+          находится в<br>
+          рекреационной зоне на границе<br>
+          с заповедниками «Таганай» и «Зюраткуль»<br>
+          всего в 30 минутах езды от Златоуста,<br>
+          и в 1,5 часах от Челябинска.
+        </span>
+      </div>
+    </div>
+    <h3 style="font-weight: 700;color: blue;">SHERZOD_USMANOVV</h3>
+  </div>
+
+
+</footer>
+
+
+
+<!-- Swiper init joyi -->
+<script>
+  const swiper = new Swiper('.hero-swiper', {
+    loop: true,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      bulletClass: 'swiper-pagination-bullet',
+      bulletActiveClass: 'swiper-pagination-bullet-active'
+    },
+  });
+  
+</script>
+
+<script>
+  const openBtn = document.getElementById('openMenuBtn');
+  const closeBtn = document.getElementById('closeMenuBtn');
+  const drawerMenu = document.getElementById('drawerMenu');
+  const overlay = document.getElementById('overlay');
+  function handleResize() {
+    if (window.innerWidth <= 480) {
+      drawerMenu.style.width = '10.5rem';
+      openBtn.style.width = '2.5rem';
+      openBtn.style.height = '2.5rem';
+    } else if (window.innerWidth <= 640) {
+      drawerMenu.style.width = '12rem';
+      openBtn.style.width = '3.2rem';
+      openBtn.style.height = '3.2rem';
+    } else if (window.innerWidth <= 768) {
+      drawerMenu.style.width = '14rem';
+      openBtn.style.width = '3.8rem';
+      openBtn.style.height = '3.8rem';
+    } else {
+      drawerMenu.style.width = '15rem';
+      openBtn.style.width = '';
+      openBtn.style.height = '';
+    }
+  }
+  window.addEventListener('resize', handleResize);
+  window.addEventListener('DOMContentLoaded', handleResize);
+  openBtn.onclick = () => {
+    drawerMenu.classList.remove('translate-x-full');
+    overlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  };
+  closeBtn.onclick = overlay.onclick = () => {
+    drawerMenu.classList.add('translate-x-full');
+    overlay.classList.add('hidden');
+    document.body.style.overflow = '';
+  };
+  document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") {
+      drawerMenu.classList.add('translate-x-full');
+      overlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+</body>
+</html>
